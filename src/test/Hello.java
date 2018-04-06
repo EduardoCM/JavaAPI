@@ -12,6 +12,7 @@ import javax.ws.rs.core.Application;
 @Path("/hello")
 public class Hello {
 
+	//http://localhost:8080/JavaAPI/rest/hello/xml
 	@GET
 	@Produces(MediaType.TEXT_XML)
 	@Path("/xml")
@@ -20,6 +21,8 @@ public class Hello {
 		return message;
 	}
 
+	
+	//http://localhost:8080/JavaAPI/rest/hello/json
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/json")
@@ -35,7 +38,9 @@ public class Hello {
 	public Message sayHelloJsonParams(@QueryParam("id") int id, 
 			                          @QueryParam("message") String message,
 			                          @QueryParam("author") String author) {
-		
+		/*
+		 * http://localhost:8080/JavaAPI/rest/hello/jsonParam?id=5&message=datosDesdeUrl&author=EduardoCM
+		 */
 		Message messageParam = new Message(id, message, author);
 		return messageParam;
 	}
